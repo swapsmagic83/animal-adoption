@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>{{pet.name}}</h1>
+        {% if pet.photo_url %}
+        <img src="{{ pet.photo_url }}">
+        {% endif %}
+        <form action="" method="POST">
+            {{form.hidden_tag()}}
+        {% for field in form 
+            if field.widget.input_type != 'hidden' %}
+            <p>
+                {{field.label}}
+                {{field}}</p>
+        {% endfor %}
+        <button>Save</button>
+        </form>
+    </div>
+</body>
+</html>
